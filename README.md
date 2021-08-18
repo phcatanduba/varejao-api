@@ -1,3 +1,21 @@
+## How to use
+
+1. Sign-up sending a request to POST /sign-up
+2. Sign-in sending a request to POST /sign-in
+3. Get your 'JWT TOKEN'
+4. Send a JSON to POST /contacts with the JWT TOKEN
+5. JSON format: 
+```bash{
+     {
+      contacts": [
+          {
+              "name": "Srta. Isabelly Castro",
+              "cellphone": "5541959365078" ***exact this length and only numbers***
+          },
+        }
+     }
+```
+
 ## How to run
 1. Clone this repository
 2. Create a database using ``migrations`` 
