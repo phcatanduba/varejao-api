@@ -1,5 +1,6 @@
 import { getRepository } from 'typeorm';
-import joi, { number } from 'joi';
+import joi from 'joi';
+import Contacts from '../entities/Contacts';
 
 export async function isValid(contacts: object[]) {
     const contactSchema = joi.object({
@@ -22,4 +23,8 @@ export async function isValid(contacts: object[]) {
     return result;
 }
 
-export async function create() {}
+export async function create(contacts: object[]) {
+    contacts.forEach(async (contact) => {
+        await getRepository(Contacts).insert(contact);
+    });
+}

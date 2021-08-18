@@ -11,7 +11,8 @@ export async function create(req: Request, res: Response) {
             {
                 const result = await contactsServices.isValid(contacts);
                 if (result.error === 0) {
-                    res.send('OK').status(200);
+                    await contactsServices.create(contacts);
+                    res.sendStatus(200);
                 } else {
                     res.status(400).send(`Error in ${result.error}.º contact`);
                 }
